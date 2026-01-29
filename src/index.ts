@@ -207,7 +207,7 @@ const TOOLS = [
 
 app.get('/', (req, res) => {
   res.json({
-    service: 'West Texas A&M Athletics MCP Server,
+    service: 'West Texas A&M Athletics MCP Server',
     status: 'running',
     tools: TOOLS.length,
     available_sports: AVAILABLE_SPORTS,
