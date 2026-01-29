@@ -19,7 +19,7 @@ const AVAILABLE_SPORTS = [
 const TOOLS = [
     {
         name: 'get_roster',
-        description: 'Get the roster for any NMHU sport including player details',
+        description: 'Get the roster for any WTAMU sport including player details',
         inputSchema: {
             type: 'object',
             properties: {
@@ -30,7 +30,7 @@ const TOOLS = [
     },
     {
         name: 'get_schedule',
-        description: 'Get the schedule for any NMHU sport',
+        description: 'Get the schedule for any WTAMU sport',
         inputSchema: {
             type: 'object',
             properties: {
@@ -169,7 +169,7 @@ const TOOLS = [
     },
     {
         name: 'get_all_sports_summary',
-        description: 'Get overview of all NMHU sports in one call',
+        description: 'Get overview of all WTAMU sports in one call',
         inputSchema: {
             type: 'object',
             properties: {},
@@ -202,11 +202,11 @@ const TOOLS = [
 ];
 app.get('/', (req, res) => {
     res.json({
-        service: 'NMHU Athletics MCP Server',
+        service: 'West Texas A&M Athletics MCP Server,,
         status: 'running',
         tools: TOOLS.length,
         available_sports: AVAILABLE_SPORTS,
-        base_url: 'https://nmhuathletics.com'
+        base_url: 'https://gobuffsgo.com'
     });
 });
 const mcpHandler = async (req, res) => {
@@ -219,7 +219,7 @@ const mcpHandler = async (req, res) => {
                 result: {
                     protocolVersion: '0.1.0',
                     capabilities: { tools: {} },
-                    serverInfo: { name: 'nmhu-athletics-mcp', version: '1.0.0' }
+                    serverInfo: { name: 'wtamu-athletics-mcp', version: '1.0.0' }
                 }
             });
         }
@@ -315,7 +315,7 @@ const mcpHandler = async (req, res) => {
 app.post('/', mcpHandler);
 app.post('/mcp', mcpHandler);
 app.listen(PORT, () => {
-    console.log(`NMHU Athletics MCP Server running on port ${PORT}`);
+    console.log(`WTAMU Athletics MCP Server running on port ${PORT}`);
     console.log(`Tools: ${TOOLS.length}`);
     TOOLS.forEach(tool => console.log(`  - ${tool.name}`));
 });
